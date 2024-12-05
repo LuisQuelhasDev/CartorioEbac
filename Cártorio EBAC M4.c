@@ -133,12 +133,13 @@ int main()//Função Principal.
 		
 		printf("\tBem Vindo ao Cartório da EBAC \n\n");//Começo do menu
 		printf("\tA seguir digite o valor correspondente a opção desejada \n\n");
-		printf("\t1-Registro de novos alunos");
+		printf("1-Registro de novos alunos");
 		printf("\t2-Consultar situação de cadastro");
-		printf("\t3-Deletar cadastro \n\n");
+		printf("\t3-Deletar cadastro");
+		printf("\t4-Sair do Programa\n\n");
 		printf("Opção: ");//Fim do menu
 	
-		scanf("%d", &opcao);//Armazenamento de Informações
+		scanf("%d", &opcao);//Armazenamento de Informações. Lê a escolha do usuário.
 		
 		system("cls");
 	
@@ -154,6 +155,11 @@ int main()//Função Principal.
 		
 		case 3:
 		deletar();
+		break;
+		
+		case 4:
+		printf("Obrigado por usar nosso sistema!");
+		return 0;
 		break;
 		
 		default:
