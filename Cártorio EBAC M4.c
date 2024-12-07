@@ -124,48 +124,70 @@ int main()//Função Principal.
 {
 	int opcao=0;//Definindo variáveis
 	int x=1;
+	char login[10]="a";
+	char senha[8];
+	int comparacaologin, comparacaosenha;
 	
-	for(x=1;x=1;)
+	setlocale(LC_ALL, "Portuguese");//Indica a Linguagem usada
+	printf("\tBem Vindo ao Cartório da EBAC \n\n");//Mensagem de entrada.
+	printf("Digite o login e a senha para acessar\n");
+	printf("Login: ");//Requisita informação.
+	scanf("%s", login);
+	printf("Senha: ");//Requisita informação.
+	scanf("%s", senha);
+	
+	comparacaologin=strcmp(login,"admin");//strcmp. Compara a string. Se for igual o valor de comparacao será 0.
+	comparacaosenha=strcmp(senha,"ebac123");
+	
+	if(comparacaologin == 0 && comparacaosenha == 0)
 	{
-		system("cls");
-	
-		setlocale(LC_ALL, "Portuguese");//Indica a Linguagem usada
-		
-		printf("\tBem Vindo ao Cartório da EBAC \n\n");//Começo do menu
-		printf("\tA seguir digite o valor correspondente a opção desejada \n\n");
-		printf("1-Registro de novos alunos");
-		printf("\t2-Consultar situação de cadastro");
-		printf("\t3-Deletar cadastro");
-		printf("\t4-Sair do Programa\n\n");
-		printf("Opção: ");//Fim do menu
-	
-		scanf("%d", &opcao);//Armazenamento de Informações. Lê a escolha do usuário.
-		
-		system("cls");
-	
-		switch(opcao)//Opções de seleção do menu
+		while(1)//Deixa um loop até que o usuário resolva sair.
 		{
-		case 1:
-		registro();
-		break;
+			system("cls");
+			setlocale(LC_ALL, "Portuguese");//Indica a Linguagem usada
+			
+			printf("\tA seguir digite o valor correspondente a opção desejada \n\n");//Inicio do Menu.
+			printf("1-Registro de novos alunos");
+			printf("\t2-Consultar situação de cadastro");
+			printf("\t3-Deletar cadastro");
+			printf("\t4-Sair do Programa\n\n");
+			printf("Opção: ");//Fim do menu
+	
+			scanf("%d", &opcao);//Armazenamento de Informações. Lê a escolha do usuário.
 		
-		case 2:
-		consulta();
-		break;
+			system("cls");
+	
+			switch(opcao)//Opções de seleção do menu
+			{
+				case 1:
+				registro();
+				break;
 		
-		case 3:
-		deletar();
-		break;
+				case 2:
+				consulta();
+				break;
 		
-		case 4:
-		printf("Obrigado por usar nosso sistema!");
-		return 0;
-		break;
+				case 3:
+				deletar();
+				break;
 		
-		default:
-		printf("Desculpe, essa opção não está disponivel\n");
-		system("pause");
-		break;	//Fim das opções de seleção do menu
+				case 4:
+				printf("Obrigado por usar nosso sistema!\n");
+				system("pause");
+				system("cls");
+				main();//Retorna ao menu de login.
+				break;
+		
+				default:
+				printf("Desculpe, essa opção não está disponivel\n");
+				system("pause");
+				break;	//Fim das opções de seleção do menu
+			}
 		}
 	}
+	else
+	printf("\nUma ou ambas informações estão incorretas!\n");//Mensagem resposta.
+	system("pause");
+	system("cls");//Limpar a tela, para que ao continuar não aparecer dois menus de login na tela.
+	main();//Volta a tela de Login.
 }
